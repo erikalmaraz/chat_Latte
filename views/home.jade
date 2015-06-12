@@ -1,0 +1,28 @@
+extends ./layout/layout.jade
+block content
+	.row
+		.column
+			.content(ng-controller="CtrlChatList")
+				.ui.comments
+					.comment
+						a.ui.right.floated.floating.button.red(href="/logout") Salir
+						a.avatar
+							img#userImg(src="#{user.photo}")
+						.content
+							a.author#userDisplayName(href="#{user.url}") #{user.displayName}
+							.text #{user.email}
+				.comments-list
+					.ui.comments(ng-repeat="item in comments")
+						.comment.animated.bounceInLeft
+							a.avatar
+								img(ng-src="{{item.userInfo.photo}}")
+							.content
+								a.author(href="{{item.userInfo.url}}") {{item.userInfo.displayName}}
+								.metadata
+									//span.date Today at 5:42PM
+								.text {{item.message}}
+				.comments-box
+					form(ng-submit="SendMessage()")
+						.ui.fluid.action.input
+							input(type="text",placeholder="Escribe tus mensajes aquí",required,ng-model="comment.message")
+							button.ui.button.blue(type="submit") Enviar

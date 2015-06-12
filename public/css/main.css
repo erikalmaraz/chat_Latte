@@ -1,0 +1,115 @@
+*{
+	box-sizing:border-box;
+}
+.row{
+	margin:0 auto;
+	max-width: 1280px;
+	display: table;
+	width: 100%;
+	position:relative;
+}
+.column{
+	display: block;
+	vertical-align: top;
+	width:100%;
+	vertical-align: middle;
+}
+.column:first-child{
+	padding: 10px;
+}
+.column:last-child{
+	padding: 10px;
+	height: 500px;
+}
+.column:last-child>.content{
+	padding: 10px;
+	border: 1px solid #fff;
+	margin-bottom: 10px;
+}
+.column:last-child .comments-list{
+	height: 360px;
+	overflow-x:hidden;
+	overflow-y:scroll;  
+}
+.column:last-child .comments-box{
+	height: 50px;
+	padding-top: 10px;
+}
+@media screen and (min-width: 800px){
+	.row{
+		top:50%;
+		transform:translateY(-50%);		
+	}
+	.column{
+		display: table-cell;
+	}
+	.column:first-child{
+		width: 60%;
+	}
+	.column:last-child{
+		width: 40%;
+	}
+}
+/*animate css*/
+
+@charset "UTF-8";
+/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2015 Daniel Eden
+*/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  animation-duration: .75s;
+}
+/*bouncing*/
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
